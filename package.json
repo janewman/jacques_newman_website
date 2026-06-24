@@ -1,0 +1,27 @@
+{
+  "name": "jacques_newman_website",
+  "version": "1.0.0",
+  "description": "Personal Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test",
+    "build": "eleventy",
+    "dev": "eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janewman/jacques_newman_website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janewman/jacques_newman_website/issues"
+  },
+  "homepage": "https://github.com/janewman/jacques_newman_website#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "lit": "^3.3.3"
+  },
+  "type": "module"
+}
