@@ -12,8 +12,9 @@ class SiteHeader extends LitElement {
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      border-bottom: 1px solid color-mix(in oklab, currentColor 25%, transparent);
-      padding-bottom: 0.75rem;
+      max-width: 76rem;
+      margin: 0 auto;
+      padding: 1rem 2rem;
     }
 
     h1 {
@@ -28,6 +29,19 @@ class SiteHeader extends LitElement {
 
     a {
       color: inherit;
+      text-underline-offset: 0.2em;
+    }
+
+    a:focus-visible {
+      border-radius: 0.15rem;
+      outline: 0.2rem solid #f3b61f;
+      outline-offset: 0.2rem;
+    }
+
+    @media (max-width: 40rem) {
+      header {
+        padding-inline: 1.25rem;
+      }
     }
   `;
 
@@ -43,6 +57,7 @@ class SiteHeader extends LitElement {
         <nav>
           <a href="/">Home</a>
           <a href="/about/">About</a>
+          <a href="/resume/">Resume</a>
         </nav>
       </header>
     `;

@@ -1,0 +1,245 @@
+---
+layout: layouts/base.njk
+title: Jacques Newman | Resume
+description: Resume of Jacques Newman, browser engineer and web accessibility standards contributor
+stylesheet: /assets/resume.css
+bodyClass: resume-page
+---
+<article class="resume" aria-labelledby="resume-name">
+  <header class="resume__header">
+    <div>
+      <p class="resume__eyebrow">Browser engineer · Accessibility · Web standards</p>
+      <h1 id="resume-name">Jacques Newman</h1>
+      <p class="resume__intro">
+        Senior software engineer focused on improving the web platform for everyone.
+      </p>
+    </div>
+    <address class="resume__contact" aria-label="Contact information">
+      <a href="mailto:jacquesnewman@outlook.com">jacquesnewman@outlook.com</a>
+      <a href="https://github.com/janewman">github.com/janewman</a>
+      <span>Greater Seattle Area</span>
+    </address>
+  </header>
+
+  <div class="resume__layout">
+    <div class="resume__main">
+      <section aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Experience</h2>
+
+        <article class="role">
+          <header class="role__header">
+            <div>
+              <h3>Microsoft</h3>
+              <p>Senior Software Engineer · Microsoft Edge Web Platform</p>
+            </div>
+            <p class="role__date"><time datetime="2017-05-15">May 2017</time>–Present</p>
+          </header>
+          <p class="role__progression">
+            Senior Software Engineer, Sep 2024–Present · Software Engineer II, Mar 2019–Sep 2024 ·
+            Software Engineer, May 2017–Mar 2019
+          </p>
+
+          <div class="role__chapter">
+            <h4>Web Platform, Accessibility &amp; Standards <span>2025–Present</span></h4>
+            <ul>
+              <li>
+                Revived the <a href="https://github.com/whatwg/html/pull/11723"><code>focusgroup</code>
+                HTML capability</a> after an extended period of inactivity, led a new explainer,
+                and served as the sole engineer implementing it in Chromium through shipment in
+                Chromium 150 while driving the proposal through Open UI and WHATWG Stage 2,
+                cross-browser engagement, developer trials, and demos. Worked closely with the
+                polyfill's developer, providing feature guidance and reviewing changes to support
+                easy adoption; it now receives roughly 2,000 weekly downloads.
+              </li>
+              <li>
+                Took ownership of <a href="https://github.com/w3c/aria/pull/2577">ARIA Notify</a>
+                after its original developer departed and drove the remaining browser
+                implementation, cross-platform accessibility mappings, permissions policy,
+                testing, and standards work through shipment in Chromium 141.
+              </li>
+              <li>
+                Implemented and enabled <code>aria-actions</code> by default in Chromium across
+                Windows UI Automation, IAccessible2, and macOS accessibility APIs, with platform
+                safeguards, IDL reflection, and web-platform test coverage.
+              </li>
+              <li>
+                Delivered MathML-for-UIA in Chromium and owned the Narrator UIA TextPattern
+                scenario, landing UIA custom properties plus fixes for format boundaries, newline
+                geometry, and text-range alignment.
+              </li>
+              <li>
+                Represent Microsoft in ARIA, Open UI, WHATWG, and interoperability initiatives;
+                align browser vendors, assistive-technology partners, and web developers around
+                practical, accessible platform behavior.
+              </li>
+              <li>
+                Serve as a Chromium Accessibility owner and high-volume reviewer, resolving
+                release-blocking crashes, security issues, compliance defects, and complex
+                cross-product regressions while mentoring engineers in the codebase.
+              </li>
+            </ul>
+          </div>
+
+          <div class="role__chapter">
+            <h4>Edge Copilot Vision &amp; Quality <span>2024–2025</span></h4>
+            <ul>
+              <li>
+                Improved Copilot Vision highlighting by adding pointer-aware context and
+                developing element, image, and fuzzy-text highlighting across browser and service
+                codebases.
+              </li>
+              <li>
+                Built a shared quality dashboard and debugging workflows that centralized failure
+                analysis across engineering disciplines.
+              </li>
+            </ul>
+          </div>
+
+          <div class="role__chapter role__chapter--print-page-two">
+            <h4>Chromium Accessibility Platform <span>2019–2024</span></h4>
+            <ul>
+              <li>
+                Drove key parts of the broader ViewsAX refactoring, helping converge accessibility
+                infrastructure for browser UI and web content while improving architectural
+                consistency, responsiveness, testability, and the path to lower memory use.
+              </li>
+              <li>
+                Delivered Windows UI Automation and text-navigation improvements used by
+                Narrator and other assistive technologies, including UIA tree testing,
+                ignored-node support, text ranges, AX mode management, performance telemetry,
+                and event reliability.
+              </li>
+              <li>
+                Built accessibility telemetry, performance instrumentation, fuzzers, and
+                automated tests that informed investment decisions and caught regressions; also
+                supported Edge, Chromium, WebView2, and partner teams on platform integration.
+              </li>
+              <li>
+                Led Accessible Shopping Navigation from architecture and user research through
+                prototyping and experimentation, then made a data-driven recommendation not to
+                ship; the work produced
+                <a href="https://patents.google.com/patent/US12282522B2/">U.S. Patent
+                12282522</a>.
+              </li>
+            </ul>
+          </div>
+
+          <div class="role__chapter">
+            <h4>Chromium Layout / GridNG <span>2020–2021</span></h4>
+            <ul>
+              <li>
+                Contributed foundational data structures and launch-critical fixes to Chromium
+                GridNG, supporting improved CSS Grid interoperability and the replacement of
+                long-standing legacy layout behavior.
+              </li>
+            </ul>
+          </div>
+
+          <div class="role__chapter">
+            <h4>Microsoft Edge Layout <span>2017–2019</span></h4>
+            <ul>
+              <li>
+                Improved EdgeHTML formatting and layout reliability, memory efficiency, and CSS
+                interoperability before helping transition the team to the Chromium codebase.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <p class="early-experience">
+          <strong>Lead Teacher, ProjectFUN · DigiPen Institute of Technology</strong>
+          <span>2014–2015</span><br />
+          Taught Java and game development to high-school students and coordinated five teaching
+          assistants.
+        </p>
+      </section>
+
+      <section aria-labelledby="open-source-heading">
+        <h2 id="open-source-heading">Open source &amp; standards</h2>
+        <div class="highlights">
+          <article>
+            <p class="highlight__metric">Patent</p>
+            <h3>Accessible navigation</h3>
+            <p>
+              Lead inventor on
+              <a href="https://patents.google.com/patent/US12282522B2/">U.S. Patent
+              12282522, “Assistance user interface for computer accessibility.”</a>
+            </p>
+          </article>
+          <article>
+            <p class="highlight__metric">Lead</p>
+            <h3>Focusgroup</h3>
+            <p>
+              First-listed author of the active
+              <a href="https://open-ui.org/components/scoped-focusgroup.explainer/">Open UI
+              explainer</a> and author of the
+              <a href="https://github.com/whatwg/html/pull/11723">WHATWG HTML specification PR</a>.
+            </p>
+          </article>
+          <article>
+            <p class="highlight__metric">ARIA</p>
+            <h3>Accessible APIs</h3>
+            <p>
+              Contributor to ARIA Notify, HTML accessibility mappings, accessibility API
+              interoperability, and cross-browser testing.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+        <article class="education">
+          <div>
+            <h3>DigiPen Institute of Technology</h3>
+            <p>B.S., Computer Science &amp; Real-Time Interactive Simulation</p>
+            <p>Minor in Mathematics</p>
+          </div>
+          <p><time datetime="2017-04">Apr 2017</time></p>
+        </article>
+      </section>
+    </div>
+
+    <aside class="resume__sidebar" aria-label="Professional profile">
+      <section aria-labelledby="expertise-heading">
+        <h2 id="expertise-heading">Expertise</h2>
+        <ul class="tag-list">
+          <li>Browser architecture</li>
+          <li>Web accessibility</li>
+          <li>Web standards</li>
+          <li>Chromium / Blink</li>
+          <li>Windows UI Automation</li>
+          <li>Assistive technologies</li>
+          <li>Interoperability</li>
+          <li>Technical leadership</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="technology-heading">
+        <h2 id="technology-heading">Technology</h2>
+        <dl class="skills">
+          <div>
+            <dt>Languages</dt>
+            <dd>C++, JavaScript, Python, C#</dd>
+          </div>
+          <div>
+            <dt>Platform</dt>
+            <dd>Chromium, Blink, HTML, ARIA, UIA, IAccessible2, AT-SPI, macOS Accessibility</dd>
+          </div>
+          <div>
+            <dt>Practice</dt>
+            <dd>API design, systems debugging, performance, telemetry, fuzzing, WPT, code review</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="leadership-heading">
+        <h2 id="leadership-heading">Leadership</h2>
+        <p>
+          Chromium code owner, standards representative, cross-team technical lead, mentor, and
+          accessibility advocate known for precise systems reasoning and clear documentation.
+        </p>
+      </section>
+    </aside>
+  </div>
+</article>
