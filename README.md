@@ -14,16 +14,21 @@ npm run dev
 Open the local URL shown by Eleventy. Run `npm run build` to generate the static
 site in `dist/`.
 
+To build only the standalone resume, run `npm run build:resume`. The output is
+`dist-resume/index.html` and its stylesheet; it has no website navigation or
+other pages. Run `npm run dev:resume` to preview it locally. The original site
+build remains available separately in `dist/`.
+
 ## Publishing the resume
 
 In the repository's **Settings > Pages**, set the build and deployment source to
 **GitHub Actions**. The Publish resume workflow runs on pushes to `main` and can
-also be started from the Actions tab. It builds the site but publishes only the
-resume and its stylesheet, with no navigation to the unpublished pages.
+also be started from the Actions tab. It publishes the standalone resume
+build, with no navigation to the unpublished pages.
 
 The resume is published at the Pages site root (normally
-`https://janewman.github.io/jacques_newman_website/`). The workflow uses the
-configured Pages base path, including when a custom domain is configured.
+`https://janewman.github.io/jacques_newman_website/`). Its relative stylesheet
+URL works with a project path or a custom domain.
 Pushes to other branches do not trigger deployment; a manually dispatched run
 can deploy the selected branch.
 
@@ -69,6 +74,8 @@ this checklist after content, template, or style changes.
 ### Build and content
 
 - [ ] Run `npm run build` and confirm it finishes without errors.
+- [ ] Run `npm run build:resume` and confirm `dist-resume/` contains only the
+  resume and its stylesheet, with no site navigation.
 - [ ] Run `npm run dev`. Open `/`, `/about/`, and `/resume/` directly, then
   reload each page.
 - [ ] Check for missing assets, raw Markdown, and visible template expressions.

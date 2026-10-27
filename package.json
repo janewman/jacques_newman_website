@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "eleventy",
-    "dev": "eleventy --serve"
+    "dev": "eleventy --serve",
+    "build:resume": "eleventy --config=.eleventy.resume.js",
+    "dev:resume": "eleventy --config=.eleventy.resume.js --serve"
   },
   "repository": {
     "type": "git",

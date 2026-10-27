@@ -95,13 +95,11 @@
       }
     </style>
     {% if stylesheet %}
-      <link rel="stylesheet" href="{{ stylesheet | url }}" />
+      <link rel="stylesheet" href="{% if standaloneResume %}.{% endif %}{{ stylesheet }}" />
     {% endif %}
   </head>
   <body class="{{ bodyClass or '' }}">
-    {% if not resumeOnly %}
-      {% include "site-header.njk" %}
-    {% endif %}
+    {% if not standaloneResume %}{% include "site-header.njk" %}{% endif %}
     <main>{{ content | safe }}</main>
   </body>
 </html>

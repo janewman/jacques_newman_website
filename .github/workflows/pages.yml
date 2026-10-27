@@ -24,21 +24,12 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - id: pages
-        uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v5
       - name: Build resume
-        run: npm run build -- --pathprefix="$PAGES_BASE_PATH/"
-        env:
-          RESUME_ONLY: "true"
-          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
-      - name: Prepare Pages artifact
-        run: |
-          mkdir -p pages/assets
-          cp dist/resume/index.html pages/index.html
-          cp dist/assets/resume.css pages/assets/resume.css
+        run: npm run build:resume
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: pages
+          path: dist-resume
 
   deploy:
     environment:

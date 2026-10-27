@@ -1,6 +1,5 @@
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
-  eleventyConfig.addGlobalData("resumeOnly", process.env.RESUME_ONLY === "true");
 
   return {
     dir: {
