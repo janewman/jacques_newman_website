@@ -33,6 +33,8 @@ layout; they contain no resume copy.
 Use Markdown bullets, links, and backticks for code. Wrap prose at 80 columns.
 Reference-style links keep long URLs out of the text. Do not leave blank lines
 between bullets: they add paragraph wrappers that change the spacing.
+Link larger projects to tracking issues or Gerrit queries rather than individual
+changes. Use the ChromeStatus entry for the `focusgroup` release link.
 
 Each chapter sets its `title`, `period`, and numeric `order` in the front
 matter. To add a chapter, copy an existing file and give it a unique `order`.

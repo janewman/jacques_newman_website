@@ -4,7 +4,6 @@ permalink: false
 title: Edge Copilot Vision & Quality
 period: 2024–2025
 order: 2
-printPageTwo: true
 ---
 - Added pointer-based context to Copilot Vision using Blink hit-testing to
   identify nearby text and images for the language model. Prototyped element,
