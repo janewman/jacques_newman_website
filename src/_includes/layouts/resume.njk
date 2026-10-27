@@ -1,0 +1,67 @@
+---
+layout: layouts/base.njk
+---
+<article class="resume" aria-labelledby="resume-name">
+  <header class="resume__header">
+    <div>
+      <p class="resume__eyebrow">{{ eyebrow | escape }}</p>
+      <h1 id="resume-name">{{ name | escape }}</h1>
+      <p class="resume__intro">{{ intro | escape }}</p>
+    </div>
+    <address class="resume__contact" aria-label="Contact information">
+      <a href="mailto:{{ contact.email | escape }}">{{ contact.email | escape }}</a>
+      <a href="https://{{ contact.github | escape }}">{{ contact.github | escape }}</a>
+      <span>{{ contact.location | escape }}</span>
+    </address>
+  </header>
+
+  <div class="resume__layout">
+    <div class="resume__main">
+      <section aria-labelledby="experience-heading">
+        <h2 id="experience-heading">{{ experience.heading | escape }}</h2>
+
+        <article class="role">
+          <header class="role__header">
+            <div>
+              <h3>{{ experience.employer | escape }}</h3>
+              <p>{{ experience.title | escape }}</p>
+            </div>
+            <p class="role__date"><time datetime="{{ experience.start | escape }}">{{ experience.startLabel | escape }}</time>–{{ experience.endLabel | escape }}</p>
+          </header>
+          <p class="role__progression">{{ experience.progression | escape }}</p>
+
+          {% for chapter in collections.resumeChapters | sort(false, false, "data.order") %}
+          <div class="role__chapter{% if chapter.data.printPageTwo %} role__chapter--print-page-two{% endif %}">
+            {% if chapter.data.printPageTwo %}
+            <p class="resume__continuation" hidden aria-hidden="true">{{ experience.continuation | escape }}</p>
+            {% endif %}
+            <h4>{{ chapter.data.title | escape }} <span>{{ chapter.data.period | escape }}</span></h4>
+            {{ chapter.content | safe }}
+          </div>
+          {% endfor %}
+        </article>
+
+        <article class="early-experience">
+          <header>
+            <h3>{{ teaching.title | escape }}</h3>
+            <span>{{ teaching.period | escape }}</span>
+          </header>
+          <p>{{ teaching.summary | escape }}</p>
+        </article>
+      </section>
+
+      <section aria-labelledby="education-heading">
+        <h2 id="education-heading">{{ education.heading | escape }}</h2>
+        <article class="education">
+          <div>
+            <h3>{{ education.institution | escape }}</h3>
+            <p>{{ education.degree | escape }}</p>
+            <p>{{ education.minor | escape }}</p>
+          </div>
+          <p><time datetime="{{ education.date | escape }}">{{ education.dateLabel | escape }}</time></p>
+        </article>
+      </section>
+    </div>
+
+  </div>
+</article>

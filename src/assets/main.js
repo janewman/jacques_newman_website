@@ -1,1 +1,1 @@
-// Reserved for future browser enhancements; primary navigation is rendered by Eleventy.
+// Reserved entry point; not loaded by the current layout.

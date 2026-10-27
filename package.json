@@ -1,10 +1,9 @@
 {
   "name": "jacques_newman_website",
   "version": "1.0.0",
-  "description": "Personal Website",
+  "description": "Jacques Newman's personal website and resume",
   "main": "index.js",
   "scripts": {
-    "test": "node --test",
     "build": "eleventy",
     "dev": "eleventy --serve"
   },
@@ -22,10 +21,6 @@
   "dependencies": {
     "@11ty/eleventy": "^3.1.6",
     "lit": "^3.3.3"
-  },
-  "devDependencies": {
-    "pdfjs-dist": "~4.8.69",
-    "playwright": "^1.64.1"
   },
   "type": "module"
 }
