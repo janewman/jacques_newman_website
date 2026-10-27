@@ -9,7 +9,7 @@ import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 
-export async function withResumeBrowser(check) {
+export async function withResumeBrowser(check, launchOptions = {}) {
   // Keep each build isolated from dist and concurrent build tests.
   const workspace = await mkdtemp(join(root, ".resume-pdf-"));
   const output = join(workspace, "site");
@@ -44,7 +44,7 @@ export async function withResumeBrowser(check) {
     });
     const origin = `http://127.0.0.1:${server.address().port}`;
     try {
-      browser = await chromium.launch({ headless: true });
+      browser = await chromium.launch({ headless: true, ...launchOptions });
     } catch (error) {
       throw new Error(
         "PDF tests require Playwright Chromium. Run `npx playwright install chromium` " +

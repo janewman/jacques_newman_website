@@ -15,7 +15,7 @@ Then open the local URL shown by Eleventy.
 
 - `npm run dev` – start Eleventy in local dev server mode
 - `npm run build` – build the static site to `dist/`
-- `npm test` – run build, static navigation, and actual Chromium PDF regression tests
+- `npm test` – run build, navigation, browser accessibility, and actual Chromium PDF regression tests
 
 ## Testing
 
@@ -53,6 +53,11 @@ with the shopping project. The print continuation begins with Copilot Vision,
 keeping its date and the subsequent Microsoft chapters together on page two.
 Responsive checks cover 320–1440px, both layout breakpoints, readable experience
 text, and visible keyboard focus on every link.
+Run `node --test test/accessibility.test.mjs` for current-page navigation, computed
+focus contrast on light/dark surfaces and in forced colors, teaching-role heading
+semantics, and 320px reflow with actual 16/20/32px browser default fonts, both with
+and without text-spacing overrides. These checks include text bounds so a clipped
+resume cannot masquerade as successful reflow.
 
 ## Project structure
 
@@ -65,7 +70,8 @@ text, and visible keyboard focus on every link.
 Primary navigation is rendered by Eleventy and works without JavaScript. The
 `site-header` wrapper is a screen/print styling hook, not a registered web component.
 Its Home, About, and Resume links retain native keyboard navigation and visible
-focus indicators; the header and links wrap on narrow screens.
+focus indicators; the matching link has `aria-current="page"` and a persistent
+double underline distinct from keyboard focus. The header and links wrap on narrow screens.
 
 To extend the site, add pages in `src/`. Lit remains installed for future components
 in `src/assets/components/`; these need a browser-compatible build or import map

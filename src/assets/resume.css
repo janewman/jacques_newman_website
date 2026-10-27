@@ -84,6 +84,18 @@
   overflow-wrap: anywhere;
 }
 
+@media screen {
+  .resume__contact a:focus-visible {
+    outline-color: #f3b61f;
+  }
+}
+
+@media screen and (forced-colors: active) {
+  .resume__contact a:focus-visible {
+    outline-color: Highlight;
+  }
+}
+
 .resume__contact span {
   color: #d7e5f0;
 }
@@ -189,8 +201,15 @@
   font-size: 0.9rem;
 }
 
-.early-experience strong {
+.resume .early-experience h3 {
+  display: inline;
+  margin: 0;
   color: var(--resume-ink);
+  font-size: inherit;
+}
+
+.early-experience p {
+  margin: 0;
 }
 
 .early-experience span {

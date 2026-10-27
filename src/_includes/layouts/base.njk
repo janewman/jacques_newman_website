@@ -16,7 +16,7 @@
 
       body {
         margin: 0;
-        min-width: 20rem;
+        overflow-wrap: anywhere;
       }
 
       main {
@@ -36,7 +36,7 @@
 
       a:focus-visible {
         border-radius: 0.15rem;
-        outline: 0.2rem solid #f3b61f;
+        outline: 0.2rem solid #172033;
         outline-offset: 0.2rem;
       }
 
@@ -70,6 +70,18 @@
       .site-header__nav a {
         color: inherit;
         text-underline-offset: 0.2em;
+      }
+
+      .site-header__nav a[aria-current="page"] {
+        text-decoration-style: double;
+        text-decoration-thickness: 0.1em;
+        font-weight: 700;
+      }
+
+      @media (forced-colors: active) {
+        a:focus-visible {
+          outline-color: Highlight;
+        }
       }
 
       @media (max-width: 40rem) {

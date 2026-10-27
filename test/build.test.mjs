@@ -22,8 +22,13 @@ test("build generates the personal site and current resume", () => {
     assert.match(page, /<header class="site-header__inner">/);
     assert.match(page, /<p class="site-header__name">Jacques Newman<\/p>/);
     assert.deepEqual(
-      [...navigation[1].matchAll(/<a href="([^"]+)">([^<]+)<\/a>/g)].map(([, href, text]) => [href, text]),
+      [...navigation[1].matchAll(/<a href="([^"]+)"(?: aria-current="page")?>([^<]+)<\/a>/g)].map(([, href, text]) => [href, text]),
       [["/", "Home"], ["/about/", "About"], ["/resume/", "Resume"]]
+    );
+    assert.deepEqual(
+      [...navigation[1].matchAll(/<a href="([^"]+)" aria-current="page">/g)].map(([, href]) => href),
+      [route ? `/${route}/` : "/"],
+      "Exactly the matching native link has current-page state"
     );
     assert.doesNotMatch(page, /<script[^>]+src="[^"]*(?:main|site-header)\.js"/);
     assert.match(page, /a:focus-visible\s*\{[^}]*outline:/);

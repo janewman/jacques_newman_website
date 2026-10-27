@@ -3,9 +3,9 @@
   <header class="site-header__inner">
     <p class="site-header__name">Jacques Newman</p>
     <nav class="site-header__nav" aria-label="Primary">
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
-      <a href="/resume/">Resume</a>
+      <a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a>
+      <a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
+      <a href="/resume/"{% if page.url == "/resume/" %} aria-current="page"{% endif %}>Resume</a>
     </nav>
   </header>
 </site-header>
