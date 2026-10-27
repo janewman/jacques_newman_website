@@ -5,20 +5,18 @@ title: Web APIs & Standards
 period: 2025–Present
 order: 1
 ---
-- Led Microsoft's `focusgroup` work from standards proposal through
+- Led Microsoft's `focusgroup` work from reviving the proposal through
   [implementation][focusgroup-implementation] and
   [shipment in Chromium 150][focusgroup-release], enabling declarative keyboard
   navigation for composite widgets.
-- Revived the `focusgroup` proposal, wrote the
+  Authored the
   [Open UI explainer][focusgroup-explainer] and
-  [specification proposal][focusgroup-specification], and advanced it to
+  [specification proposal][focusgroup-specification] and advanced it to
   [WHATWG Stage 2][focusgroup-stage-two].
-  Supported developer trials and guided the polyfill developer through
-  feedback and code review.
-- Enabled web applications to request screen-reader announcements without DOM
-  updates through [ARIA Notify, shipped in Chromium 141][aria-notify-release].
-  Took over and completed the implementation and
-  [ARIA specification work][aria-notify-specification].
+- Completed the Chromium implementation and
+  [ARIA specification work][aria-notify-specification] for
+  [ARIA Notify, shipped in Chromium 141][aria-notify-release], enabling web
+  applications to request screen-reader announcements without DOM updates.
 - Implemented and
   [enabled `aria-actions` by default in desktop Chromium][aria-actions]
   across Windows and macOS accessibility APIs.

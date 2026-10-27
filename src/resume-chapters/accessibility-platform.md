@@ -9,10 +9,9 @@ printPageTwo: true
 - Helped build accessibility infrastructure for browser UI and web content
   through the [ViewsAX refactoring][viewsax], including a shared UI layer and
   cache.
-- Improved Windows UI Automation and text navigation for Narrator and other
-  assistive technologies, including UIA tree testing, text ranges, and event
-  reliability. Owned Chromium changes supporting Narrator's use of UIA
-  TextPattern.
+- Owned Chromium changes supporting Narrator's use of Windows UI Automation
+  (UIA) TextPattern, including text navigation, text ranges, event reliability,
+  and UIA tree testing.
 - Implemented MathML support for Windows UI Automation in Chromium,
   [enabled by default for Chromium Canary users][mathml-uia].
 - Built accessibility usage and performance telemetry that informed investment
@@ -22,9 +21,9 @@ printPageTwo: true
   release-blocking crashes, compliance defects, and cross-product regressions.
   Mentor engineers through code review and debugging. Led and co-led mentoring
   groups.
-- Applied accessibility project: led Accessible Shopping Navigation from
-  architecture and user research through prototyping and experimentation, then
-  recommended against shipping based on the results. Lead inventor on
+- Led Accessible Shopping Navigation from architecture and user research through
+  prototyping and experimentation, then recommended against shipping based on
+  the results. Lead inventor on
   [U.S. Patent 12282522, “Assistance user interface for computer
   accessibility.”][shopping-patent]
 
