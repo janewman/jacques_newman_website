@@ -1,7 +1,7 @@
 ---
 tags: resumeChapters
 permalink: false
-title: Web Platform, Accessibility & Standards
+title: Web APIs & Standards
 period: 2025–Present
 order: 1
 ---
@@ -22,21 +22,14 @@ order: 1
 - Implemented and
   [enabled `aria-actions` by default in desktop Chromium][aria-actions]
   across Windows and macOS accessibility APIs.
-- Implemented MathML support for Windows UI Automation in Chromium,
-  [enabled by default for Chromium Canary users][mathml-uia].
-  Owned Chromium changes supporting Narrator's use of UIA TextPattern.
 - Represent Microsoft in ARIA, Open UI, and WHATWG. Contribute to HTML
   accessibility mappings and cross-browser interoperability with browser
   vendors, assistive-technology partners, and web developers.
-- As a Chromium Accessibility owner, resolve security vulnerabilities,
-  release-blocking crashes, compliance defects, and cross-product regressions.
-  Mentor engineers through code review and debugging. Led and co-led mentoring
-  groups.
 
 [focusgroup-release]:
-  https://developer.chrome.com/release-notes/150#focusgroup
+  https://chromestatus.com/feature/5637601087193088
 [focusgroup-implementation]:
-  https://chromium-review.googlesource.com/c/chromium/src/+/7871960
+  https://issues.chromium.org/issues/40210717
 [focusgroup-explainer]:
   https://open-ui.org/components/scoped-focusgroup.explainer/
 [focusgroup-specification]:
@@ -48,6 +41,4 @@ order: 1
 [aria-notify-specification]:
   https://github.com/w3c/aria/pull/2577
 [aria-actions]:
-  https://chromium-review.googlesource.com/c/chromium/src/+/8006126
-[mathml-uia]:
-  https://chromium-review.googlesource.com/c/chromium/src/+/7530809
+  https://chromium-review.googlesource.com/q/owner:janewman+hashtag:aria-actions+status:merged

@@ -1,26 +1,37 @@
 ---
 tags: resumeChapters
 permalink: false
-title: Chromium Accessibility Platform
+title: Browser Accessibility Infrastructure
 period: 2019–Present
 order: 3
+printPageTwo: true
 ---
 - Helped build accessibility infrastructure for browser UI and web content
   through the [ViewsAX refactoring][viewsax], including a shared UI layer and
   cache.
 - Improved Windows UI Automation and text navigation for Narrator and other
   assistive technologies, including UIA tree testing, text ranges, and event
-  reliability.
+  reliability. Owned Chromium changes supporting Narrator's use of UIA
+  TextPattern.
+- Implemented MathML support for Windows UI Automation in Chromium,
+  [enabled by default for Chromium Canary users][mathml-uia].
 - Built accessibility usage and performance telemetry that informed investment
   decisions and helped diagnose unexpected accessibility activation. Added
   fuzzers and automated tests to catch regressions.
+- As a Chromium Accessibility owner, resolve security vulnerabilities,
+  release-blocking crashes, compliance defects, and cross-product regressions.
   Supported Edge, Chromium, WebView2, and partner teams on platform integration.
-- Led Accessible Shopping Navigation from architecture and user research through
-  prototyping and experimentation, then recommended against shipping based on
-  the results. Lead inventor on [U.S. Patent 12282522, “Assistance user
-  interface for computer accessibility.”][shopping-patent]
+  Mentor engineers through code review and debugging. Led and co-led mentoring
+  groups.
+- Applied accessibility project: led Accessible Shopping Navigation from
+  architecture and user research through prototyping and experimentation, then
+  recommended against shipping based on the results. Lead inventor on
+  [U.S. Patent 12282522, “Assistance user interface for computer
+  accessibility.”][shopping-patent]
 
 [viewsax]:
-  https://chromium-review.googlesource.com/c/chromium/src/+/5520052
+  https://chromium-review.googlesource.com/q/owner:janewman+hashtag:views-ax+status:merged
+[mathml-uia]:
+  https://chromium-review.googlesource.com/q/owner:janewman+message:UIA-MathML+status:merged
 [shopping-patent]:
   https://patents.google.com/patent/US12282522B2/
