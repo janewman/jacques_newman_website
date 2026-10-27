@@ -1,1 +1,1 @@
-import "./components/site-header.js";
+// Reserved for future browser enhancements; primary navigation is rendered by Eleventy.
