@@ -10,7 +10,7 @@ bodyClass: resume-page
 eleventyImport:
   collections: [resumeChapters]
 name: Jacques Newman
-eyebrow: Browser engineer · Accessibility · Web standards
+eyebrow: Browser engineering · Accessibility · Web standards
 intro: >-
   Senior software engineer building browser features, working on browser
   internals and native accessibility, and contributing to web standards.
