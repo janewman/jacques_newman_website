@@ -29,6 +29,9 @@ layout: layouts/base.njk
             <p class="role__date"><time datetime="{{ experience.start | escape }}">{{ experience.startLabel | escape }}</time>–{{ experience.endLabel | escape }}</p>
           </header>
           <p class="role__progression">{{ experience.progression | escape }}</p>
+          <p class="role__progression">
+            {{ experience.projectsLabel | escape }}
+          </p>
 
           {% for chapter in collections.resumeChapters | sort(false, false, "data.order") %}
           <div class="role__chapter{% if chapter.data.printPageTwo %} role__chapter--print-page-two{% endif %}">
