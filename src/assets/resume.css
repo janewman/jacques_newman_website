@@ -3,7 +3,6 @@
   --resume-ink: #172033;
   --resume-muted: #566176;
   --resume-line: #d9dfeb;
-  --resume-panel: #eef5fb;
 }
 
 .resume-page {
@@ -64,7 +63,7 @@
   letter-spacing: -0.055em;
 }
 
-.resume__intro {
+.resume .resume__intro {
   max-width: 48rem;
   margin: 1.5rem 0 0;
   color: #d7e5f0;
@@ -90,17 +89,13 @@
 }
 
 .resume__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 2.8fr) minmax(15rem, 1fr);
+  display: block;
 }
 
-.resume__main,
-.resume__sidebar {
+.resume__main {
   padding: 2.5rem 3rem 3rem;
-}
-
-.resume__sidebar {
-  background: var(--resume-panel);
+  max-width: 84ch;
+  margin-inline: auto;
 }
 
 .resume section + section {
@@ -188,7 +183,7 @@
   margin-top: 0.55rem;
 }
 
-.early-experience {
+.resume .early-experience {
   margin: 2rem 0 0;
   color: var(--resume-muted);
   font-size: 0.9rem;
@@ -203,117 +198,37 @@
   font-weight: 700;
 }
 
-.highlights {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.85rem;
-}
-
-.highlights article {
-  padding: 1.2rem;
-  border: 1px solid var(--resume-line);
-  border-radius: 0.45rem;
-}
-
-.highlights h3 {
-  font-size: 1rem;
-}
-
-.highlights p {
-  margin-bottom: 0;
-  color: var(--resume-muted);
-  font-size: 0.88rem;
-}
-
-.highlight__metric {
-  color: var(--resume-accent) !important;
-  font-size: 1.65rem !important;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-}
-
 .education h3 {
   font-size: 1rem;
-}
-
-.resume__sidebar section + section {
-  margin-top: 2.5rem;
-}
-
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0 !important;
-  list-style: none;
-}
-
-.tag-list li {
-  padding: 0.32rem 0.55rem;
-  border: 1px solid #bfd4e7;
-  border-radius: 0.25rem;
-  color: #23405b;
-  background: rgb(255 255 255 / 65%);
-  font-size: 0.82rem;
-}
-
-.tag-list li + li {
-  margin: 0;
-}
-
-.skills {
-  margin: 0;
-}
-
-.skills div + div {
-  margin-top: 1rem;
-}
-
-.skills dt {
-  font-size: 0.85rem;
-  font-weight: 750;
-}
-
-.skills dd {
-  margin: 0.2rem 0 0;
-  color: var(--resume-muted);
-  font-size: 0.9rem;
-}
-
-.resume__sidebar p {
-  color: var(--resume-muted);
-  font-size: 0.92rem;
 }
 
 .resume code {
   font-size: 0.92em;
 }
 
-@media (max-width: 58rem) {
-  .resume__layout {
-    grid-template-columns: 1fr;
-  }
-
-  .resume__sidebar {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .resume__sidebar section + section {
-    margin-top: 0;
-  }
-}
-
-@media (max-width: 44rem) {
+@media screen and (max-width: 76rem) {
   .resume__header {
     grid-template-columns: 1fr;
     align-items: start;
-    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .resume h1 {
+    font-size: clamp(2.7rem, 7vw, 5rem);
   }
 
   .resume__contact {
     text-align: left;
+  }
+}
+
+@media screen and (max-width: 44rem) {
+  .resume-page main {
+    padding: 0.75rem;
+  }
+
+  .resume__header {
+    padding: 1.75rem 1rem;
   }
 
   .resume h1 {
@@ -321,14 +236,8 @@
     letter-spacing: -0.045em;
   }
 
-  .resume__main,
-  .resume__sidebar {
-    padding: 2rem 1.5rem;
-  }
-
-  .resume__sidebar,
-  .highlights {
-    grid-template-columns: 1fr;
+  .resume__main {
+    padding: 1.5rem 1rem;
   }
 
   .role__header,
@@ -350,15 +259,17 @@
 @media print {
   @page {
     size: letter;
-    margin: 0.45in;
+    margin: 0.5in;
   }
 
   :root {
-    font-size: 9.5pt;
-    line-height: 1.42;
+    font-size: 12pt;
+    line-height: 1.45;
+    background: #fff;
   }
 
   .resume-page {
+    min-width: 0;
     background: #fff;
   }
 
@@ -368,6 +279,7 @@
 
   .resume-page main {
     max-width: none;
+    margin: 0;
     padding: 0;
   }
 
@@ -379,38 +291,87 @@
   }
 
   .resume__header {
-    padding: 0.26in 0.3in;
-    print-color-adjust: exact;
+    display: block;
+    padding: 0 0 0.12in;
+    border-bottom: 1pt solid var(--resume-line);
+    color: var(--resume-ink);
+    background: #fff;
+  }
+
+  .resume__eyebrow {
+    margin-bottom: 0.04in;
+    color: var(--resume-muted);
+    font-size: 8.5pt;
   }
 
   .resume h1 {
-    font-size: 34pt;
+    padding: 0;
+    font-size: 28pt;
+    letter-spacing: -0.035em;
   }
 
-  .resume__intro {
-    font-size: 10pt;
+  .resume .resume__intro {
+    max-width: none;
+    margin: 0.07in 0;
+    color: var(--resume-ink);
+    font-size: 11pt;
   }
 
-  .resume__main,
-  .resume__sidebar {
-    padding: 0.25in 0.3in;
+  .resume__contact {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.04in 0.18in;
+    padding: 0;
+    font-size: 8.5pt;
+    text-align: left;
+  }
+
+  .resume__contact span {
+    color: var(--resume-muted);
   }
 
   .resume__layout {
-    grid-template-columns: minmax(0, 2.8fr) minmax(1.6in, 1fr);
+    display: block;
   }
 
-  .resume__sidebar {
-    display: block;
-    print-color-adjust: exact;
+  .resume__main {
+    max-width: none;
+    margin: 0;
+    padding: 0.14in 0 0;
   }
 
   .resume section + section {
-    margin-top: 0.2in;
+    margin-top: 0.17in;
   }
 
-  .resume__sidebar section + section {
-    margin-top: 0.2in;
+  .resume h2 {
+    margin-bottom: 0.06in;
+    font-size: 8.5pt;
+    letter-spacing: 0.1em;
+  }
+
+  .resume h3 {
+    font-size: 14pt;
+  }
+
+  .resume h4 {
+    margin-bottom: 0.05in;
+    font-size: 12pt;
+  }
+
+  .resume h4 span {
+    font-size: 8.5pt;
+  }
+
+  .role__header,
+  .education {
+    padding-bottom: 0.06in;
+    gap: 0.15in;
+  }
+
+  .role__progression {
+    margin-top: 0.06in;
+    font-size: 8.5pt;
   }
 
   .role + .role {
@@ -418,19 +379,24 @@
   }
 
   .role__chapter {
-    margin-top: 0.1in;
+    margin-top: 0.12in;
   }
 
   .resume li + li {
-    margin-top: 0.03in;
+    margin-top: 0.045in;
   }
 
-  .highlights {
-    gap: 0.05in;
+  .resume .early-experience {
+    margin-top: 0.15in;
+    font-size: 9pt;
   }
 
-  .highlights article {
-    padding: 0.08in;
+  .early-experience span {
+    float: none;
+  }
+
+  .education h3 {
+    font-size: 10pt;
   }
 
   .resume a {
@@ -438,14 +404,42 @@
     text-decoration: none;
   }
 
-  .role,
+  .role {
+    break-inside: auto;
+  }
+
+  .resume h2,
+  .resume h3,
+  .resume h4,
+  .role__header,
+  .role__progression {
+    break-after: avoid;
+  }
+
+  .resume p,
+  .resume li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .resume li,
   .education,
-  .highlights article {
+  .early-experience {
     break-inside: avoid;
   }
 
   .role__chapter--print-page-two {
     break-before: page;
     page-break-before: always;
+    margin-top: 0;
+  }
+
+  .resume .resume__continuation {
+    display: block;
+    margin: 0 0 0.16in;
+    padding-bottom: 0.06in;
+    border-bottom: 1pt solid var(--resume-line);
+    color: var(--resume-muted);
+    font-size: 8.5pt;
   }
 }
