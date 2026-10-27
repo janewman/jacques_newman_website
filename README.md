@@ -19,6 +19,19 @@ To build only the standalone resume, run `npm run build:resume`. The output is
 other pages. Run `npm run dev:resume` to preview it locally. The original site
 build remains available separately in `dist/`.
 
+## Publishing the resume
+
+In the repository's **Settings > Pages**, set the build and deployment source to
+**GitHub Actions**. The Publish resume workflow runs on pushes to `main` and can
+also be started from the Actions tab. It publishes the standalone resume
+build, with no navigation to the unpublished pages.
+
+The resume is published at the Pages site root (normally
+`https://janewman.github.io/jacques_newman_website/`). Its relative stylesheet
+URL works with a project path or a custom domain.
+Pushes to other branches do not trigger deployment; a manually dispatched run
+can deploy the selected branch.
+
 ## Project structure
 
 - `src/index.njk` and `src/about.njk` – home and about pages
