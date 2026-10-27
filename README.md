@@ -14,6 +14,11 @@ npm run dev
 Open the local URL shown by Eleventy. Run `npm run build` to generate the static
 site in `dist/`.
 
+To build only the standalone resume, run `npm run build:resume`. The output is
+`dist-resume/index.html` and its stylesheet; it has no website navigation or
+other pages. Run `npm run dev:resume` to preview it locally. The original site
+build remains available separately in `dist/`.
+
 ## Project structure
 
 - `src/index.njk` and `src/about.njk` – home and about pages
@@ -56,6 +61,8 @@ this checklist after content, template, or style changes.
 ### Build and content
 
 - [ ] Run `npm run build` and confirm it finishes without errors.
+- [ ] Run `npm run build:resume` and confirm `dist-resume/` contains only the
+  resume and its stylesheet, with no site navigation.
 - [ ] Run `npm run dev`. Open `/`, `/about/`, and `/resume/` directly, then
   reload each page.
 - [ ] Check for missing assets, raw Markdown, and visible template expressions.
