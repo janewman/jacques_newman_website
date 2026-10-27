@@ -20,7 +20,6 @@ printPageTwo: true
   fuzzers and automated tests to catch regressions.
 - As a Chromium Accessibility owner, resolve security vulnerabilities,
   release-blocking crashes, compliance defects, and cross-product regressions.
-  Supported Edge, Chromium, WebView2, and partner teams on platform integration.
   Mentor engineers through code review and debugging. Led and co-led mentoring
   groups.
 - Applied accessibility project: led Accessible Shopping Navigation from
