@@ -14,6 +14,19 @@ npm run dev
 Open the local URL shown by Eleventy. Run `npm run build` to generate the static
 site in `dist/`.
 
+## Publishing the resume
+
+In the repository's **Settings > Pages**, set the build and deployment source to
+**GitHub Actions**. The Publish resume workflow runs on pushes to `main` and can
+also be started from the Actions tab. It builds the site but publishes only the
+resume and its stylesheet, with no navigation to the unpublished pages.
+
+The resume is published at the Pages site root (normally
+`https://janewman.github.io/jacques_newman_website/`). The workflow uses the
+configured Pages base path, including when a custom domain is configured.
+Pushes to other branches do not trigger deployment; a manually dispatched run
+can deploy the selected branch.
+
 ## Project structure
 
 - `src/index.njk` and `src/about.njk` – home and about pages
