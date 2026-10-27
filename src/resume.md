@@ -1,5 +1,6 @@
 ---
 layout: layouts/resume.njk
+permalink: "{% if standaloneResume %}/{% else %}/resume/{% endif %}"
 title: Jacques Newman | Resume
 description: >-
   Resume of Jacques Newman, browser engineer and web accessibility standards
