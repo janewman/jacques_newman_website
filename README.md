@@ -1,79 +1,116 @@
-# jacques_newman_website
+# Jacques Newman's website
 
-A barebones and easy-to-extend personal website built with Eleventy + Lit.
+Personal website and resume, built with Eleventy.
 
 ## Getting started
 
-```bash
-npm install
-npm run dev
-```
-
-Then open the local URL shown by Eleventy.
-
-## Scripts
-
-- `npm run dev` – start Eleventy in local dev server mode
-- `npm run build` – build the static site to `dist/`
-- `npm test` – run build, navigation, browser accessibility, and actual Chromium PDF regression tests
-
-## Testing
-
-Use Node.js 20 or newer. From a fresh checkout:
+Use Node.js 20 or newer.
 
 ```bash
 npm ci
-npx playwright install chromium
-npm test
+npm run dev
 ```
 
-On Linux CI, install Chromium's system libraries too:
-`npx playwright install --with-deps chromium`.
-The browser is Playwright's versioned Chromium, not a local Edge installation.
-Missing browser binaries fail the tests with installation instructions; they are
-never silently skipped.
-
-For just the print checks, run `node --test test/resume-print.test.mjs`.
-The tests build into a unique repository-local scratch directory, serve it on an
-ephemeral loopback port, and generate a fresh PDF. They do not reuse `dist/` or
-race the build test. Browser, server, and scratch output are cleaned up even on
-failure.
-
-PDF.js checks the extracted document order, essential content, exactly two
-Letter pages, at least 8pt text, and half-inch print bounds. A browser-only 18pt
-mutation must fail the page-count assertion, protecting against an incorrect
-“2 of 2” continuation on a longer document. This tests Chromium PDF output, not
-every browser, interactive print-dialog setting, ATS, or screen reader. Installed
-system fonts can affect pagination; manually inspect both PDF pages after font
-or layout changes.
-
-The resume leads with browser/platform accomplishments rather than a skills
-inventory. Source links sit beside the work they support, and the patent stays
-with the shopping project. The print continuation begins with Copilot Vision,
-keeping its date and the subsequent Microsoft chapters together on page two.
-Responsive checks cover 320–1440px, both layout breakpoints, readable experience
-text, and visible keyboard focus on every link.
-Run `node --test test/accessibility.test.mjs` for current-page navigation, computed
-focus contrast on light/dark surfaces and in forced colors, teaching-role heading
-semantics, and 320px reflow with actual 16/20/32px browser default fonts, both with
-and without text-spacing overrides. These checks include text bounds so a clipped
-resume cannot masquerade as successful reflow.
+Open the local URL shown by Eleventy. Run `npm run build` to generate the static
+site in `dist/`.
 
 ## Project structure
 
-- `src/` – pages, layouts, and static assets
-- `src/assets/components/` – Lit web components
-- `src/_includes/layouts/` – Eleventy layouts
-- `src/_includes/site-header.njk` – server-rendered primary navigation
-- `test/` – focused tests
+- `src/index.njk` and `src/about.njk` – home and about pages
+- `src/resume.md` – resume details in YAML front matter
+- `src/resume-chapters/*.md` – accomplishments as Markdown bullets and links
+- `src/_includes/layouts/resume.njk` – resume markup
+- `src/_includes/layouts/base.njk` – shared page layout
+- `src/_includes/site-header.njk` – navigation
+- `src/assets/` – styles and browser scripts
 
-Primary navigation is rendered by Eleventy and works without JavaScript. The
-`site-header` wrapper is a screen/print styling hook, not a registered web component.
-Its Home, About, and Resume links retain native keyboard navigation and visible
-focus indicators; the matching link has `aria-current="page"` and a persistent
-double underline distinct from keyboard focus. The header and links wrap on narrow screens.
+## Editing the resume
 
-To extend the site, add pages in `src/`. Lit remains installed for future components
-in `src/assets/components/`; these need a browser-compatible build or import map
-before loading them in a page. The reserved `src/assets/main.js` entry point is not
-loaded by the base layout.
+Edit the intro, contact details, job history, and education in `src/resume.md`.
+Edit accomplishments in `src/resume-chapters/*.md`. Nunjucks files handle the
+layout; they contain no resume copy.
+
+Use Markdown bullets, links, and backticks for code. Wrap prose at 80 columns.
+Reference-style links keep long URLs out of the text. Do not leave blank lines
+between bullets: they add paragraph wrappers that change the spacing.
+
+Each chapter sets its `title`, `period`, and numeric `order` in the front
+matter. To add a chapter, copy an existing file and give it a unique `order`.
+Keep `tags: resumeChapters` to include it in the resume and `permalink: false`
+to prevent a separate page.
+
+Keep `printPageTwo: true` on only one chapter. It starts the second printed
+page and adds the continuation heading. Check pagination after editing content.
+
+Eleventy uses [collections][eleventy-collections] to group the chapters and
+[non-output templates][eleventy-permalinks] to render them without separate
+pages.
+
+## Manual test checklist
+
+The site can be tested with any suitable browser and inspection tools. Use
+this checklist after content, template, or style changes.
+
+### Build and content
+
+- [ ] Run `npm run build` and confirm it finishes without errors.
+- [ ] Run `npm run dev`. Open `/`, `/about/`, and `/resume/` directly, then
+  reload each page.
+- [ ] Check for missing assets, raw Markdown, and visible template expressions.
+- [ ] Compare the resume with its Markdown sources. Check contact details,
+  titles, dates, bullets, code formatting, and links.
+- [ ] Confirm chapters follow their numeric `order`, experience comes before
+  education, and no content is missing or repeated.
+- [ ] Confirm `dist/` contains no separate `resume-chapters/` pages.
+
+### Navigation and accessibility
+
+- [ ] Follow Home, About, and Resume from every page. Only the current page
+  should have a double underline and `aria-current="page"`.
+- [ ] Disable JavaScript and reload. Content and navigation should still work.
+- [ ] Use Tab and Shift+Tab through every link. Check focus order, visible focus
+  on light and dark backgrounds, and that focus never gets trapped.
+- [ ] Activate links with the keyboard. Check web destinations and the email
+  address.
+- [ ] Check headings: one level-one heading per page, no skipped levels,
+  chapters within experience, and the teaching role at level three. Each
+  `aria-labelledby` value should reference an existing heading.
+- [ ] Confirm the print continuation is hidden on screen and absent from the
+  accessibility tree.
+- [ ] If available, check high-contrast or forced-colors mode. Current-page
+  state and keyboard focus should remain distinct and visible.
+
+### Responsive layout
+
+- [ ] Check widths around 320px and 1440px, plus a width between them. Resize
+  across the 44rem and 76rem breakpoints.
+- [ ] Check that navigation, contact details, headings, dates, and links wrap
+  without overlap, clipped text, or horizontal scrolling.
+- [ ] Increase browser zoom to 200% and 400%, then try a larger default text
+  size. Content should remain readable and links usable.
+- [ ] If text-spacing overrides are available, use 1.5 line height, 0.12em
+  letter spacing, 0.16em word spacing, and 2em paragraph spacing. Check for
+  overlap, clipping, and horizontal scrolling.
+- [ ] When appearance should stay the same, compare spacing, typography,
+  colors, and alignment with the previous version at matching viewport sizes.
+
+### Print and PDF
+
+- [ ] Open print preview with Letter paper, 100% scale, and half-inch margins.
+  Disable browser-added headers and footers.
+- [ ] Check for exactly two pages, a white background, no site navigation, and
+  no clipped text or content outside the margins. Text should be at least 8pt.
+- [ ] Confirm page two starts with the continuation and the chapter marked
+  `printPageTwo: true`, including its date. The continuation should appear
+  once, with the correct page count.
+- [ ] Check page breaks. Headings should stay with their content; individual
+  bullets, the teaching role, and education should not split across pages.
+- [ ] Save a PDF. Check that text is selectable, copied text follows the
+  reading order, and links open the expected destinations.
+
+Record the revision, browser version, settings, and any failures. Leave skipped
+checks unchecked and note why they were not run.
+
+[eleventy-collections]: https://www.11ty.dev/docs/collections/
+[eleventy-permalinks]:
+  https://www.11ty.dev/docs/permalinks/#skip-writing-to-the-file-system
