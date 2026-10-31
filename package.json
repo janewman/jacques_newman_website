@@ -6,8 +6,8 @@
   "scripts": {
     "build": "eleventy",
     "dev": "eleventy --serve",
-    "build:resume": "eleventy --config=.eleventy.resume.js",
-    "dev:resume": "eleventy --config=.eleventy.resume.js --serve"
+    "build:resume": "eleventy --config=.eleventy.resume.js && node scripts/build-resume-pdf.js",
+    "dev:resume": "npm run build:resume && eleventy --config=.eleventy.resume.js --serve"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
     "@11ty/eleventy": "^3.1.6",
     "lit": "^3.3.3"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "playwright": "^1.64.1"
+  }
 }

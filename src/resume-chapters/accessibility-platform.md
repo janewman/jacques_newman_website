@@ -4,7 +4,6 @@ permalink: false
 title: Browser Accessibility Infrastructure
 period: 2019–Present
 order: 3
-printPageTwo: true
 ---
 - Helped build accessibility infrastructure for browser UI and web content
   through the [ViewsAX refactoring][viewsax], including a shared UI layer and

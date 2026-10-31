@@ -29,7 +29,6 @@ experience:
     Senior Software Engineer, Sep 2024–Present · Software Engineer II,
     Mar 2019–Sep 2024 · Software Engineer, May 2017–Mar 2019
   projectsLabel: Selected projects and responsibilities
-  continuation: Jacques Newman · Microsoft experience, continued · 2 of 2
 teaching:
   title: Lead Teacher, ProjectFUN · DigiPen Institute of Technology
   period: 2014–2015

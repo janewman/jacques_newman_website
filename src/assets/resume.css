@@ -70,6 +70,15 @@
   font-size: 1.15rem;
 }
 
+.resume__download {
+  margin: 1rem 0 0;
+}
+
+.resume__download a {
+  color: #fff;
+  font-weight: 700;
+}
+
 .resume__contact {
   display: flex;
   flex-direction: column;
@@ -85,13 +94,15 @@
 }
 
 @media screen {
-  .resume__contact a:focus-visible {
+  .resume__contact a:focus-visible,
+  .resume__download a:focus-visible {
     outline-color: #f3b61f;
   }
 }
 
 @media screen and (forced-colors: active) {
-  .resume__contact a:focus-visible {
+  .resume__contact a:focus-visible,
+  .resume__download a:focus-visible {
     outline-color: Highlight;
   }
 }
@@ -278,18 +289,20 @@
 @media print {
   @page {
     size: letter;
-    margin: 0.5in;
+    margin: 0.35in;
   }
 
   :root {
-    font-size: 12pt;
-    line-height: 1.45;
+    font-size: 9.5pt;
+    line-height: 1.25;
     background: #fff;
   }
 
   .resume-page {
     min-width: 0;
     background: #fff;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 
   .resume-page site-header {
@@ -303,50 +316,44 @@
   }
 
   .resume {
-    overflow: visible;
-    border: 0;
-    border-radius: 0;
     box-shadow: none;
   }
 
   .resume__header {
-    display: block;
-    padding: 0 0 0.12in;
-    border-bottom: 1pt solid var(--resume-line);
-    color: var(--resume-ink);
-    background: #fff;
+    gap: 0.16in;
+    padding: 0.18in;
   }
 
   .resume__eyebrow {
     margin-bottom: 0.04in;
-    color: var(--resume-muted);
-    font-size: 8.5pt;
+    color: #8ec9f4;
+    font-size: 8pt;
   }
 
   .resume h1 {
     padding: 0;
-    font-size: 28pt;
-    letter-spacing: -0.035em;
+    font-size: 30pt;
   }
 
   .resume .resume__intro {
     max-width: none;
-    margin: 0.07in 0;
-    color: var(--resume-ink);
-    font-size: 11pt;
+    margin: 0.08in 0 0;
+    color: #d7e5f0;
+    font-size: 9.5pt;
+  }
+
+  .resume__download {
+    display: none;
   }
 
   .resume__contact {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.04in 0.18in;
+    gap: 0.05in;
     padding: 0;
-    font-size: 8.5pt;
-    text-align: left;
+    font-size: 8pt;
   }
 
   .resume__contact span {
-    color: var(--resume-muted);
+    color: #d7e5f0;
   }
 
   .resume__layout {
@@ -356,26 +363,25 @@
   .resume__main {
     max-width: none;
     margin: 0;
-    padding: 0.14in 0 0;
+    padding: 0.14in 0.18in;
   }
 
   .resume section + section {
-    margin-top: 0.17in;
+    margin-top: 0.12in;
   }
 
   .resume h2 {
-    margin-bottom: 0.06in;
+    margin-bottom: 0.05in;
     font-size: 8.5pt;
-    letter-spacing: 0.1em;
   }
 
   .resume h3 {
-    font-size: 14pt;
+    font-size: 11pt;
   }
 
   .resume h4 {
-    margin-bottom: 0.05in;
-    font-size: 12pt;
+    margin-bottom: 0.03in;
+    font-size: 10pt;
   }
 
   .resume h4 span {
@@ -384,43 +390,47 @@
 
   .role__header,
   .education {
-    padding-bottom: 0.06in;
+    padding-bottom: 0.03in;
     gap: 0.15in;
   }
 
   .role__progression {
-    margin-top: 0.06in;
+    margin-top: 0.04in;
     font-size: 8.5pt;
   }
 
   .role + .role {
-    margin-top: 0.16in;
+    margin-top: 0.08in;
   }
 
   .role__chapter {
-    margin-top: 0.12in;
+    margin-top: 0.08in;
   }
 
   .resume li + li {
-    margin-top: 0.045in;
+    margin-top: 0.025in;
   }
 
   .resume .early-experience {
-    margin-top: 0.15in;
-    font-size: 9pt;
+    margin-top: 0.1in;
+    font-size: 8.5pt;
   }
 
   .early-experience span {
-    float: none;
+    float: right;
   }
 
   .education h3 {
-    font-size: 10pt;
+    font-size: 9.5pt;
   }
 
   .resume a {
-    color: inherit;
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-thickness: 0.5pt;
+  }
+
+  .resume__contact a {
+    color: #fff;
   }
 
   .role {
@@ -447,18 +457,4 @@
     break-inside: avoid;
   }
 
-  .role__chapter--print-page-two {
-    break-before: page;
-    page-break-before: always;
-    margin-top: 0;
-  }
-
-  .resume .resume__continuation {
-    display: block;
-    margin: 0 0 0.16in;
-    padding-bottom: 0.06in;
-    border-bottom: 1pt solid var(--resume-line);
-    color: var(--resume-muted);
-    font-size: 8.5pt;
-  }
 }

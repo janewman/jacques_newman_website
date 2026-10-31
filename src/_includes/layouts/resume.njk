@@ -7,6 +7,9 @@ layout: layouts/base.njk
       <p class="resume__eyebrow">{{ eyebrow | escape }}</p>
       <h1 id="resume-name">{{ name | escape }}</h1>
       <p class="resume__intro">{{ intro | escape }}</p>
+      {% if standaloneResume %}
+      <p class="resume__download"><a href="./jacques-newman-resume.pdf" download>Download PDF</a></p>
+      {% endif %}
     </div>
     <address class="resume__contact" aria-label="Contact information">
       <a href="mailto:{{ contact.email | escape }}">{{ contact.email | escape }}</a>
@@ -34,10 +37,7 @@ layout: layouts/base.njk
           </p>
 
           {% for chapter in collections.resumeChapters | sort(false, false, "data.order") %}
-          <div class="role__chapter{% if chapter.data.printPageTwo %} role__chapter--print-page-two{% endif %}">
-            {% if chapter.data.printPageTwo %}
-            <p class="resume__continuation" hidden aria-hidden="true">{{ experience.continuation | escape }}</p>
-            {% endif %}
+          <div class="role__chapter">
             <h4>{{ chapter.data.title | escape }} <span>{{ chapter.data.period | escape }}</span></h4>
             {{ chapter.content | safe }}
           </div>

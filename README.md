@@ -14,10 +14,13 @@ npm run dev
 Open the local URL shown by Eleventy. Run `npm run build` to generate the static
 site in `dist/`.
 
-To build only the standalone resume, run `npm run build:resume`. The output is
-`dist-resume/index.html` and its stylesheet; it has no website navigation or
-other pages. Run `npm run dev:resume` to preview it locally. The original site
-build remains available separately in `dist/`.
+To build only the standalone resume, run `npm run build:resume`. The output
+includes `dist-resume/index.html`, its stylesheet, and a linked
+`dist-resume/jacques-newman-resume.pdf` generated directly from the page with
+Chromium. Install the browser once with `npx playwright install chromium`.
+The standalone site has no website navigation or other pages. Run
+`npm run dev:resume` to preview it locally. The original site build remains
+available separately in `dist/`.
 
 ## Publishing the resume
 
@@ -41,6 +44,7 @@ can deploy the selected branch.
 - `src/_includes/layouts/base.njk` – shared page layout
 - `src/_includes/site-header.njk` – navigation
 - `src/assets/` – styles and browser scripts
+- `scripts/build-resume-pdf.js` – direct Chromium PDF generation
 
 ## Editing the resume
 
@@ -59,9 +63,6 @@ matter. To add a chapter, copy an existing file and give it a unique `order`.
 Keep `tags: resumeChapters` to include it in the resume and `permalink: false`
 to prevent a separate page.
 
-Keep `printPageTwo: true` on only one chapter. It starts the second printed
-page and adds the continuation heading. Check pagination after editing content.
-
 Eleventy uses [collections][eleventy-collections] to group the chapters and
 [non-output templates][eleventy-permalinks] to render them without separate
 pages.
@@ -74,8 +75,8 @@ this checklist after content, template, or style changes.
 ### Build and content
 
 - [ ] Run `npm run build` and confirm it finishes without errors.
-- [ ] Run `npm run build:resume` and confirm `dist-resume/` contains only the
-  resume and its stylesheet, with no site navigation.
+- [ ] Run `npm run build:resume` and confirm `dist-resume/` contains the resume,
+  its stylesheet, and generated PDF, with no site navigation.
 - [ ] Run `npm run dev`. Open `/`, `/about/`, and `/resume/` directly, then
   reload each page.
 - [ ] Check for missing assets, raw Markdown, and visible template expressions.
@@ -97,8 +98,6 @@ this checklist after content, template, or style changes.
 - [ ] Check headings: one level-one heading per page, no skipped levels,
   chapters within experience, and the teaching role at level three. Each
   `aria-labelledby` value should reference an existing heading.
-- [ ] Confirm the print continuation is hidden on screen and absent from the
-  accessibility tree.
 - [ ] If available, check high-contrast or forced-colors mode. Current-page
   state and keyboard focus should remain distinct and visible.
 
@@ -116,19 +115,16 @@ this checklist after content, template, or style changes.
 - [ ] When appearance should stay the same, compare spacing, typography,
   colors, and alignment with the previous version at matching viewport sizes.
 
-### Print and PDF
+### PDF
 
-- [ ] Open print preview with Letter paper, 100% scale, and half-inch margins.
-  Disable browser-added headers and footers.
-- [ ] Check for exactly two pages, a white background, no site navigation, and
-  no clipped text or content outside the margins. Text should be at least 8pt.
-- [ ] Confirm page two starts with the continuation and the chapter marked
-  `printPageTwo: true`, including its date. The continuation should appear
-  once, with the correct page count.
-- [ ] Check page breaks. Headings should stay with their content; individual
-  bullets, the teaching role, and education should not split across pages.
-- [ ] Save a PDF. Check that text is selectable, copied text follows the
-  reading order, and links open the expected destinations.
+- [ ] Open the generated PDF and check for exactly one page, the website's
+  rounded card and navy header with right-aligned contact details, underlined
+  links, no site navigation, and no clipped text or content outside the margins.
+  Text should be at least 8pt.
+- [ ] Check that headings stay with their content; individual bullets, the
+  teaching role, and education should not split across pages.
+- [ ] Check that text is selectable, copied text follows the reading order,
+  and links open the expected destinations.
 
 Record the revision, browser version, settings, and any failures. Leave skipped
 checks unchecked and note why they were not run.
