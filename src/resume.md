@@ -13,7 +13,7 @@ name: Jacques Newman
 eyebrow: Browser engineering · Accessibility · Web standards
 intro: >-
   Senior software engineer building browser features, working on browser
-  internals and native accessibility, and contributing to web standards.
+  internals and accessibility, and contributing to web standards.
 contact:
   email: jacquesnewman@outlook.com
   github: github.com/janewman
