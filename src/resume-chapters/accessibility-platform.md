@@ -11,8 +11,7 @@ order: 3
 - Owned Chromium changes supporting Narrator's use of Windows UI Automation
   (UIA) TextPattern, including text navigation, text ranges, event reliability,
   and UIA tree testing.
-- Implemented MathML support for Windows UI Automation in Chromium,
-  [enabled by default for Chromium Canary users][mathml-uia].
+- Implemented and shipped MathML support for Windows UI Automation in Chromium.
 - Built accessibility usage and performance telemetry that informed investment
   decisions and helped diagnose unexpected accessibility activation. Added
   fuzzers and automated tests to catch regressions.
